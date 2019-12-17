@@ -9,7 +9,7 @@
 cd ~
 
 ## Check if bootstrap exists
-if [ ! -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
+if [ -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
     then
         rm bzedge_bootstrap_$(date +%d-%m-%Y).zip
 fi
@@ -29,7 +29,7 @@ cp -r ~/.bzedge/chainstate .
 cd ~
 
 ## Zip
-zip bzedge_bootstrap_$(date +%d-%m-%Y).zip bootstrap
+zip -r bzedge_bootstrap_$(date +%d-%m-%Y).zip bootstrap
 
 ## Clean up
 rm -rfv ./bootstrap
