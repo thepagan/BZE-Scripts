@@ -2,8 +2,8 @@
 
 ## Create Bootstrap
 
-## Prereq
-sudo apt-get install zip
+## Prereq (Uncomment if needed)
+#sudo apt-get install zip
 
 ## Move to home dir
 cd ~
