@@ -9,7 +9,7 @@
 cd ~
 
 ## Check if bootstrap exists
-if [ ! -f bzedge_bootstrap_$(date +%d-%m-%Y).zip]
+if [ ! -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
     then
         rm bzedge_bootstrap_$(date +%d-%m-%Y).zip
 fi
