@@ -38,7 +38,8 @@ cd ~
 ## Zip
 zip -r bzedge_bootstrap_$(date +%d-%m-%Y).zip bootstrap
 
-##
+## Copy to bootstraps dir
+cp bzedge_bootstrap_$(date +%d-%m-%Y).zip ./bootstraps/
 
 ## Clean up
 rm -rfv ./bootstrap
