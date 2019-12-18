@@ -14,9 +14,16 @@ if [ -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
         rm bzedge_bootstrap_$(date +%d-%m-%Y).zip
 fi
 
+## Check if old bootstrap dir exists
 if [ -d bootstrap ]
     then
         rm -rfv ./bootstrap
+fi
+
+## Create bootstraps history dir
+if [ ! -d bootstraps ]
+    then
+        mkdir bootstraps
 fi
 
 ## Recreate bootstrap dir
@@ -30,6 +37,8 @@ cd ~
 
 ## Zip
 zip -r bzedge_bootstrap_$(date +%d-%m-%Y).zip bootstrap
+
+##
 
 ## Clean up
 rm -rfv ./bootstrap
