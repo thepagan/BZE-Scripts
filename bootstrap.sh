@@ -8,8 +8,19 @@
 ## Move to home dir
 cd ~
 
+## Create bootstraps history dir
+if [ ! -d bootstraps ]
+    then
+        mkdir bootstraps
+fi
+cd bootstraps
+if [ ! -d history ]
+    then
+        mkdir history
+fi
+cd history
+
 ## Check if bootstrap exists
-cd bootstraps/
 if [ -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
     then
         rm bzedge_bootstrap_$(date +%d-%m-%Y).zip
@@ -22,11 +33,7 @@ if [ -d bootstrap ]
         rm -rfv ./bootstrap
 fi
 
-## Create bootstraps history dir
-if [ ! -d bootstraps ]
-    then
-        mkdir bootstraps
-fi
+cd ~
 
 ## Recreate bootstrap dir
 mkdir bootstrap
@@ -41,7 +48,8 @@ cd ~
 zip -r bzedge_bootstrap_$(date +%d-%m-%Y).zip bootstrap
 
 ## Copy to bootstraps dir
-cp bzedge_bootstrap_$(date +%d-%m-%Y).zip ./bootstraps/
+cp bzedge_bootstrap_$(date +%d-%m-%Y).zip ./bootstraps/history/
+mv bzedge_bootstrap_$(date +%d-%m-%Y).zip ./bootstraps/bootstrap_txindex_latest.zip
 
 ## Clean up
 rm -rfv ./bootstrap
