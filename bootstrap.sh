@@ -9,10 +9,12 @@
 cd ~
 
 ## Check if bootstrap exists
+cd bootstraps/
 if [ -f bzedge_bootstrap_$(date +%d-%m-%Y).zip ]
     then
         rm bzedge_bootstrap_$(date +%d-%m-%Y).zip
 fi
+cd ~
 
 ## Check if old bootstrap dir exists
 if [ -d bootstrap ]
