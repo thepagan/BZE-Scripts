@@ -11,7 +11,7 @@ sudo apt-get install build-essential pkg-config libc6-dev m4 g++-multilib autoco
 ### Setup Vars
 GENPASS="$(date +%s | sha256sum | base64 | head -c 32 ; echo)"
 confFile=~/.bzedge/bzedge.conf
-HIGHESTBLOCK="$(wget -nv -qO - https://explorer.getbze.com/api/blocks\?limit=1 | jq .blocks[0].height)"
+HIGHESTBLOCK="$(wget -nv -qO - https://explorer.getbze.com/insight-api-bzedge-v2/blocks\?limit=1 | jq .blocks[0].height)"
 
 ### Font Colors
 BLACK='\e[30m'
@@ -110,7 +110,7 @@ if [ "$downloadOption" == "1" ]; then
 else
     ### Download Daemon
     echo -e "Grabbing the latest daemon..."
-    wget -N https://github.com/bze-alphateam/bzedge/releases/download/v2.0.3-2/bzedge-2.0.3-2-ubuntu-18.04.zip -O ~/binary.zip
+    wget -N https://github.com/bze-alphateam/bzedge/releases/download/v3.0.0/bzedge-3.0.0-ubuntu-18.04.tar.gz -O ~/binary.zip
     unzip -o ~/binary.zip -d ~
     rm ~/binary.zip
     chmod +x bzedged bzedge-cli
@@ -146,7 +146,7 @@ fi
 ### Final conf setup
 if [ ! -f $confFile ]; then
     ### Grab current height
-    HIGHESTBLOCK="$(wget -nv -qO - https://explorer.getbze.com/api/blocks\?limit=1 | jq .blocks[0].height)"
+    HIGHESTBLOCK="$(wget -nv -qO - https://explorer.getbze.com/insight-api-bzedge-v2/blocks/?limit=1 | jq .blocks[0].height)"
     if [ -z "$HIGHESTBLOCK" ]
     then
         clear
@@ -176,7 +176,7 @@ if [ ! -f $confFile ]; then
     echo -e "\n#From your wallet, copy your masternode config.\n#Paste your bzedge.conf data at the bottom of this file.\n#If the paste does not correctly format, be sure to change everything to be on its own line in this file.\n#To save, use combo Ctr + X, then type y then Enter.\n\n" >> $confFile
 
     nano $confFile
-else 
+else
     clear
     echo -e "bzedge.conf exists. Skipping..."
 fi
