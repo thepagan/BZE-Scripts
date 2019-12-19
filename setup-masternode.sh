@@ -124,10 +124,10 @@ fi
 
 ### Download bootstrap
 if [ ! -d ~/.bzedge/blocks ]; then
-    ####### echo -e "Grabbing the latest bootstrap (to speed up syncing)..."
-    ####### wget -N https://blockchain_txindex.zip
-    ####### unzip -o ~/blockchain_txindex.zip -d ~/.bzedge
-    ####### rm ~/blockchain_txindex.zip
+    echo -e "Grabbing the latest bootstrap (to speed up syncing)..."
+    wget -N https://bootstrap.getbze.com/bootstrap_txindex_latest.zip
+    unzip -o ~/bootstrap_txindex_latest.zip 'bootstrap/*' -d ~/.bzedge
+    rm ~/bootstrap_txindex_latest.zip
 fi
 
 ### Check if bzedge.conf exists and prompt user about overwriting it
