@@ -223,7 +223,7 @@ read -p "Y/n: " -n 1 -r
         Restart=always
         RestartSec=120
         RemainAfterExit=true
-        ExecStart=$HOME/bzedged -daemon
+        ExecStart=/bin/bash $HOME/bzedged -daemon
         ProtectSystem=full
         [Install]
         WantedBy=multi-user.target' >> /etc/systemd/system/bzedgenode-$USER.service"
