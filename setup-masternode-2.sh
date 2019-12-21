@@ -376,7 +376,7 @@ function display_banner() {
 		echo -e "${YELLOW}================================================================================================================================"
 		echo -e " PLEASE COMPLETE THE MASTERNODE SETUP FOR YOUR CONTROL WALLET BY ADDING FOLLOWING LINE TO YOUR MASTERNODE CONF FILE"
 		echo -e " JUST REPLACE TxID AND Output_Index WITH CORRECT VALUES${NC}"
-		echo -e " ${WANIP}:${PORT} ${masternodeprivkey} TxID Output_Index"
+		echo -e " your_alias ${WANIP}:${PORT} ${masternodeprivkey} TxID Output_Index"
 		echo -e "${CYAN} COURTESY OF DK808${NC}"
 		echo
 		echo -e "${YELLOW}   Commands to manage ${COIN_NAME} service${NC}"
@@ -395,6 +395,7 @@ function display_banner() {
 #end of functions
 
 #run functions
+        cd ~
 	wipe_clean
 	ssh_port
 	check_port
