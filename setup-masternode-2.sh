@@ -178,7 +178,6 @@ function create_conf() {
 		touch ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "rpcuser=$RPCUSER" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "rpcpassword=$PASSWORD" >> ~/$CONFIG_DIR/$CONFIG_FILE
-		echo "rpcallowip=127.0.0.1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "rpcport=$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "daemon=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
@@ -187,7 +186,14 @@ function create_conf() {
 		echo "addnode=51.15.96.180" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "addnode=51.15.99.37" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "maxconnections=256" >> ~/$CONFIG_DIR/$CONFIG_FILE
-		sleep 2
+                echo "server=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "listen=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "externalip=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "masternodeaddr=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "rpcbind=[$WANIP]:$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "bind=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
+                sleep 2
 }
 
 function append_conf() {
@@ -195,13 +201,6 @@ function append_conf() {
 	./$COIN_CLI stop && sleep 15
 	echo "masternode=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 	echo "masternodeprivkey"=$masternodeprivkey >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo "server=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo "listen=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo "externalip=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-        echo "masternodeaddr=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-        echo "rpcbind=[$WANIP]:$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-        echo "bind=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-        echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 	./$COIN_DAEMON
 	NUM='60'
 	MSG1="${CYAN}Stopping daemon to append masternode info to config and restarting daemon. This should just take a min...${NC}"
