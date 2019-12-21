@@ -395,9 +395,9 @@ function display_banner() {
 #
 #end of functions
 
+cd ~
 #run functions
-        cd ~
-	wipe_clean
+  wipe_clean
 	ssh_port
 	check_port
 	ip_confirm
