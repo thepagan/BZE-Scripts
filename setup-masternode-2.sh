@@ -180,7 +180,6 @@ function create_conf() {
 		echo "rpcpassword=$PASSWORD" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "rpcallowip=127.0.0.1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "rpcport=$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-		echo "port=$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "daemon=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 		echo "addnode=explorer.bze.zelcore.io/" >> ~/$CONFIG_DIR/$CONFIG_FILE
@@ -195,11 +194,14 @@ function append_conf() {
 	masternodeprivkey=$(./${COIN_CLI} masternode genkey)
 	./$COIN_CLI stop && sleep 15
 	echo "masternode=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo masternodeprivkey=$masternodeprivkey >> ~/$CONFIG_DIR/$CONFIG_FILE
+	echo "masternodeprivkey"=$masternodeprivkey >> ~/$CONFIG_DIR/$CONFIG_FILE
 	echo "server=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 	echo "listen=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo "externalip=$WANIP" >> ~/$CONFIG_DIR/$CONFIG_FILE
-	echo "bind=$WANIP" >> ~/$CONFIG_DIR/$CONFIG_FILE
+	echo "externalip=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+        echo "masternodeaddr=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+        echo "rpcbind=[$WANIP]:$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+        echo "bind=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
+        echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
 	./$COIN_DAEMON
 	NUM='60'
 	MSG1="${CYAN}Stopping daemon to append masternode info to config and restarting daemon. This should just take a min...${NC}"
