@@ -24,6 +24,6 @@ The following steps are followed:
 
 ## usage
 
-`bash -c "$(wget -O - https://raw.githubusercontent.com/zzzpotato/BZE-Scripts/master/bootstrap.sh)"`
+`bash -c "$(wget -O - https://raw.githubusercontent.com/bze-alphateam/BZE-Scripts/master/bootstrap.sh)"`
 
-`bash -c "$(wget -O - https://raw.githubusercontent.com/zzzpotato/BZE-Scripts/master/setup-masternode.sh)"`
+`bash -c "$(wget -O - https://raw.githubusercontent.com/bze-alphateam/BZE-Scripts/master/setup-masternode.sh)"`
