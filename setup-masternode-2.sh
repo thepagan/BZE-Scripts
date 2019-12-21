@@ -8,7 +8,7 @@ COIN_NAME='bzedge'
 UBUNTU_16_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.0/bzedge-3.0.0-ubuntu-16.04.zip'
 UBUNTU_16_ZIPFILE='bzedge-3.0.0-ubuntu-16.04.zip'
 UBUNTU_18_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.0/bzedge-3.0.0-ubuntu-18.04.zip'
-Ubuntu_18_ZIPFILE='bzedge-3.0.0-ubuntu-18.04.zip'
+UBUNTU_18_ZIPFILE='bzedge-3.0.0-ubuntu-18.04.zip'
 FETCHPARAMS='https://raw.githubusercontent.com/bze-alphateam/bzedge/master/zcutil/fetch-params.sh'
 BOOTSTRAP_ZIP='https://bootstrap.getbze.com/bootstrap_txindex_latest.zip'
 BOOTSTRAP_ZIPFILE='bootstrap_txindex_latest.zip'
@@ -215,9 +215,9 @@ function append_conf() {
 		rm -rf $UBUNTU_16_ZIPFILE
 	elif [[ $(lsb_release -r) = *18.04* ]]; then
 		wget $UBUNTU_18_ZIP
-		sudo unzip $Ubuntu_18_ZIPFILE
+		sudo unzip $UBUNTU_18_ZIPFILE
 		sudo chmod 555 ${COIN_NAME}*
-		rm -rf $Ubuntu_18_ZIPFILE
+		rm -rf $UBUNTU_18_ZIPFILE
 	elif [[ $(lsb_release -d) = *Debian* ]]; then
 		wget $UBUNTU_16_ZIP
 		sudo unzip $UBUNTU_16_ZIPFILE
