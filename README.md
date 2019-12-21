@@ -1,10 +1,10 @@
 # BZEdge scripts - life made easier
 
-##bootstrap.sh
+## bootstrap.sh
 Creates a bootstrap with blockchain data and stores it.\
 Latest .zip is symlinked to bootstrap_txindex_latest.zip.
 
-##setup-masternode.sh
+## setup-masternode.sh
 Sets up a daemon prepared to become a MN for ubuntu 16, 18 and Debian for the user that runs it.\
 The following steps are followed: 
 1. Cleanup: Stops any bzedge service running for current user and removes old binaries and bootsrap.(if any)
@@ -22,7 +22,7 @@ The following steps are followed:
 13. Starts BZE daemon service and checks the sync status
 14. Checks MN's sync status and displays it on screen until MN is fully synced.
 
-##usage
+## usage
 
 `bash -c "$(wget -O - https://raw.githubusercontent.com/zzzpotato/BZE-Scripts/master/bootstrap.sh)"`
 
