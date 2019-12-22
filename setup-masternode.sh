@@ -333,7 +333,7 @@ function status_loop() {
 		echo -e " THIS SCREEN REFRESHES EVERY 30 SECONDS"
 		echo -e " TO VIEW THE CURRENT BLOCK GO TO https://explorer.getbze.com/"
 		echo -e " DO NOT START THE MASTERNODE UNTIL THE MNSYNC STATUS RETURNS WITH SYNCHRONIZATION FINISHED"
-		echo -e " AND AT LEAST 10 CONFIRMATIONS OF YOUR COLLATERAL TX"
+		echo -e " AND AT LEAST 15 CONFIRMATIONS OF YOUR COLLATERAL TX"
 		echo -e "${YELLOW}======================================================================================${NC}"
 		echo
 		./$COIN_CLI getinfo
