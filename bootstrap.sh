@@ -6,7 +6,7 @@
 #sudo apt-get install zip
 
 #declare variables
-ZIPNAME="bzedge_bootstrap_$(date +%d-%m-%Y).zip"
+ZIPNAME="bzedge_bootstrap_$(date +%Y-%m-%d).zip"
 
 ## Move to home dir
 cd ~
