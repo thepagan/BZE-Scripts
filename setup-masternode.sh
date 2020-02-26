@@ -6,9 +6,9 @@ COIN_NAME='bzedge'
 
 #wallet information
 UBUNTU_16_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.1/bzedge-3.0.1-ubuntu-16.04.zip'
-UBUNTU_16_ZIPFILE='bzedge-3.0.0-ubuntu-16.04.zip'
+UBUNTU_16_ZIPFILE='bzedge-3.0.1-ubuntu-16.04.zip'
 UBUNTU_18_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.1/bzedge-3.0.1-ubuntu-18.04.zip'
-UBUNTU_18_ZIPFILE='bzedge-3.0.0-ubuntu-18.04.zip'
+UBUNTU_18_ZIPFILE='bzedge-3.0.1-ubuntu-18.04.zip'
 FETCHPARAMS='https://raw.githubusercontent.com/bze-alphateam/bzedge/master/zcutil/fetch-params.sh'
 BOOTSTRAP_ZIP='https://bootstrap.getbze.com/bootstrap_txindex_latest.zip'
 BOOTSTRAP_ZIPFILE='bootstrap_txindex_latest.zip'
