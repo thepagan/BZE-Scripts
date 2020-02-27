@@ -52,7 +52,7 @@ cd ~
 cp ./workDir/$ZIPNAME ./bootstraps/history/
 
 #symlink to latest txindex zip
-ln -sfn /home/$USER/bootstraps/history/$ZIPNAME /home/$USER/bootstraps/bootstrap_txindex_latest.zip
+ln -sfn ~/bootstraps/history/$ZIPNAME ~/bootstraps/bootstrap_txindex_latest.zip
 
 ## Clean up
 rm -rfv ./workDir
