@@ -403,7 +403,6 @@ cd ~
     install_bins
     zk_params
     bootstrap
-    update_script
     create_service
     basic_security
     start_daemon
