@@ -5,10 +5,10 @@
 COIN_NAME='bzedge'
 
 #wallet information
-UBUNTU_16_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.1/bzedge-3.0.1-ubuntu-16.04.zip'
-UBUNTU_16_ZIPFILE='bzedge-3.0.1-ubuntu-16.04.zip'
-UBUNTU_18_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v3.0.1/bzedge-3.0.1-ubuntu-18.04.zip'
-UBUNTU_18_ZIPFILE='bzedge-3.0.1-ubuntu-18.04.zip'
+UBUNTU_16_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v4.3.0/bzedge-4.3.0-linux.zip'
+UBUNTU_16_ZIPFILE='bzedge-4.3.0-linux.zip'
+UBUNTU_18_ZIP='https://github.com/bze-alphateam/bzedge/releases/download/v4.3.0/bzedge-4.3.0-linux.zip'
+UBUNTU_18_ZIPFILE='bzedge-4.3.0-linux.zip'
 FETCHPARAMS='https://raw.githubusercontent.com/bze-alphateam/bzedge/master/zcutil/fetch-params.sh'
 BOOTSTRAP_ZIP='https://bootstrap.getbze.com/bootstrap_txindex_latest.zip'
 BOOTSTRAP_ZIPFILE='bootstrap_txindex_latest.zip'
@@ -24,7 +24,7 @@ COIN_CLI='bzedge-cli'
 COIN_PATH='/usr/local/bin'
 USERNAME="$(whoami)"
 WORK_DIR=/home/$USER
-SERVICE_NAME="bzedge-${USER}"
+SERVICE_NAME="bzedge"
 STARTINGRPCPORT=1980
 ENDINGRPCPORT=2080
 
@@ -193,7 +193,6 @@ function create_conf() {
     echo "masternodeaddr=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "rpcbind=[$WANIP]:$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "bind=[$WANIP]:$PORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
-    echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
     sleep 2
 }
 
@@ -250,10 +249,6 @@ function bootstrap() {
     fi
 }
 
-function update_script() {
-    wget $UPDATE_SCRIPT
-    chmod +x $UPDATE_FILE
-}
 
 function create_service() {
     echo -e "${YELLOW}Creating ${COIN_NAME^} service...${NC}"
@@ -408,7 +403,6 @@ cd ~
     install_bins
     zk_params
     bootstrap
-    update_script
     create_service
     basic_security
     start_daemon
