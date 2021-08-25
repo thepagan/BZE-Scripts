@@ -182,10 +182,7 @@ function create_conf() {
     echo "rpcport=$RPCPORT" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "daemon=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "txindex=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
-    echo "addnode=explorer.bze.zelcore.io/" >> ~/$CONFIG_DIR/$CONFIG_FILE
-    echo "addnode=164.68.125.183" >> ~/$CONFIG_DIR/$CONFIG_FILE
-    echo "addnode=51.15.96.180" >> ~/$CONFIG_DIR/$CONFIG_FILE
-    echo "addnode=51.15.99.37" >> ~/$CONFIG_DIR/$CONFIG_FILE
+    curl -s "https://blocks.getbze.com/ext/connections" | jq -r --arg prefix "addnode=" '.[] | .[] | $prefix + .address' >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "maxconnections=256" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "server=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
     echo "listen=1" >> ~/$CONFIG_DIR/$CONFIG_FILE
